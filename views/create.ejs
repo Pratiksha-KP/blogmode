@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post - BlogMode</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-journal-text me-2"></i>BlogMode
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-fill me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/create">
+                            <i class="bi bi-plus-circle-fill me-1"></i>New Post
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="card-title mb-0">
+                            <i class="bi bi-plus-circle me-2"></i>Create New Post
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <% if (typeof error !== 'undefined') { %>
+                            <div class="alert alert-danger" role="alert">
+                                <i class="bi bi-exclamation-triangle me-2"></i><%= error %>
+                            </div>
+                        <% } %>
+                        
+                        <form method="POST" action="/create">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Post Title *</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="title" 
+                                       name="title" 
+                                       placeholder="Enter your post title"
+                                       required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="author" class="form-label">Author</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="author" 
+                                       name="author" 
+                                       placeholder="Your name (optional)">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Content *</label>
+                                <textarea class="form-control" 
+                                          id="content" 
+                                          name="content" 
+                                          rows="8" 
+                                          placeholder="Write your post content here..."
+                                          required></textarea>
+                            </div>
+                            
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a href="/" class="btn btn-outline-secondary me-md-2">
+                                    <i class="bi bi-arrow-left me-1"></i>Cancel
+                                </a>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-check-circle me-1"></i>Create Post
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center">
+          <p class="mb-0">&copy; <span id="current-year"></span> BlogMode. A simple blog application built with Node.js & Express.</p>
+      </div>
+  </footer>
+  
+  <script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
