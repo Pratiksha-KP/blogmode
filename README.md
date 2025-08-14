@@ -21,7 +21,7 @@ To run this project locally, you'll need Node.js, express.js and npm (Node Packa
 
 1. Clone the repository
    
-   git clone https://github.com/yourusername/blogmode.git
+   git clone https://github.com/Pratiksha-KP/blogmode.git
    
    cd blogmode
    
